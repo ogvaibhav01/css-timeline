@@ -1,20 +1,100 @@
 body{
     display: grid;
-    grid-template-rows: 300px 1fr 50px;
+    grid-template-rows: 150px auto 50px;
+    justify-content: center;
+    padding: 50px;
 }
-.cards{
-    display: grid;
-    grid-template-rows: 50px 100px;
+h1{
+    font-size: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    letter-spacing: 8px;
+    font-family: serif;
+    align-self: center;
+    justify-self: center;
 }
-.cards2{
+hr{
+    width: 230%;
+    border: 2px solid black;
+    border-style: double;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: static;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+}
+section{
+    gap: 50px;
+    min-height: 750px;
+    max-width: 150%;
+    overflow-x: scroll;
+}
+.cardsodd{
+    border-radius: 20px;
+    padding: 30px;
+    border: 2px solid black;
+    border-style: dashed;
+}
+.cardseven{
+    position: sticky;
+    min-height:110%;
+    width: 0.1px;
+    justify-self: center;
+    border: 2px solid black;
+}
+.cards:nth-child(2n+1){
     display: grid;
-    grid-template-rows: 100px 50px;
+    grid-template-rows: 4fr 1fr;
+    width: 170px;
+    min-height: 350px;
+}
+.cards:nth-child(2n){
+    display: grid;
+    /* grid-template-rows: 4fr 1fr; */
+    width: 150px;
+    min-height: 250px;
+}
+.cards2:nth-child(2n){
+    display: grid;
+    grid-template-rows: 1fr 160px;
+     width: 170px;
+    gap: 10px;
+    min-height: 250px;
+}
+.cards2:nth-child(2n+1){
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+     width: 160px;
+    gap: 10px;
+    min-height: 350px;
 }
 #up{
     display: grid;
     grid-template-columns: repeat(15, 1fr);
+    gap: 45px;
 }
 #down{
     display: grid;
-    grid-template-columns: repeat(15, 1fr);
+    grid-template-columns: repeat(30, 1fr);
+    gap: 50px;
+}
+.cards2odd{
+    border-radius: 20px;
+    padding: 30px;
+    border: 2px solid black;
+    border-style: dashed;
+}
+.cards2even{
+    position: sticky;
+    min-height:110%;
+    width: 0.1px;
+    justify-self: center;
+    border: 2px solid black;
+}
+footer{
+    margin-top: 50px;
+    font-size: 14px;
+    text-align: center;
+    color: gray;
 }
