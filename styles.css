@@ -3,6 +3,7 @@ body{
     grid-template-rows: 150px auto 50px;
     justify-content: center;
     padding: 50px;
+background: linear-gradient(to bottom right, #000000, #1a1a1a, #e50914);
 }
 h1{
     font-size: 50px;
@@ -11,11 +12,37 @@ h1{
     letter-spacing: 8px;
     font-family: serif;
     align-self: center;
+    color: white;
     justify-self: center;
 }
+.typewriter h1 {
+  overflow: hidden;              /* Hide the overflowing text */
+  border-right: 2px solid #333;  /* Simulate the cursor */
+  white-space: nowrap;           /* Prevent line breaks */
+  animation: typing 3s steps(40, end), blink 0.7s step-end infinite;
+}
+h4{
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+    font-style: italic;
+    color: white;
+}
+
+/* Typing animation */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 50% }
+}
+
+/* Blinking cursor */
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
 hr{
-    width: 230%;
-    border: 2px solid black;
+    width: 100%;
+    border: 2px solid whitesmoke;
     border-style: double;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -26,72 +53,123 @@ hr{
 }
 section{
     gap: 50px;
-    min-height: 750px;
-    max-width: 150%;
+    padding: 20px;
+    display: grid;
+    grid-template-rows: 1fr 80px 1fr;
+    min-height: 800px;
+    max-width: 200%;
     overflow-x: scroll;
 }
-.cardsodd{
-    border-radius: 20px;
-    padding: 30px;
-    border: 2px solid black;
-    border-style: dashed;
+/* Target WebKit browsers (Chrome, Edge, Safari) */
+section::-webkit-scrollbar {
+  height: 8px; /* Slim horizontal scrollbar */
 }
-.cardseven{
-    position: sticky;
-    min-height:110%;
-    width: 0.1px;
-    justify-self: center;
-    border: 2px solid black;
+
+section::-webkit-scrollbar-track {
+  background: #111; /* Dark track */
 }
-.cards:nth-child(2n+1){
-    display: grid;
-    grid-template-rows: 4fr 1fr;
-    width: 170px;
-    min-height: 350px;
+
+section::-webkit-scrollbar-thumb {
+  background: #e50914; /* Netflix red thumb */
+  border-radius: 4px;
 }
-.cards:nth-child(2n){
-    display: grid;
-    /* grid-template-rows: 4fr 1fr; */
-    width: 150px;
-    min-height: 250px;
+
+section::-webkit-scrollbar-thumb:hover {
+  background: #ff1a1a; /* Brighter red on hover */
 }
-.cards2:nth-child(2n){
-    display: grid;
-    grid-template-rows: 1fr 160px;
-     width: 170px;
-    gap: 10px;
-    min-height: 250px;
-}
-.cards2:nth-child(2n+1){
-    display: grid;
-    grid-template-rows: 1fr 4fr;
-     width: 160px;
-    gap: 10px;
-    min-height: 350px;
-}
+
+
+
 #up{
     display: grid;
     grid-template-columns: repeat(15, 1fr);
-    gap: 45px;
+    gap: 50px;
 }
 #down{
     display: grid;
-    grid-template-columns: repeat(30, 1fr);
+    grid-template-columns: repeat(15, 1fr);
     gap: 50px;
 }
+
 .cards2odd{
     border-radius: 20px;
-    padding: 30px;
-    border: 2px solid black;
+    color: white;
+    padding: 20px;
+    border: 2px solid whitesmoke;
+    height: 150%;
     border-style: dashed;
+    background: linear-gradient(83deg,rgba(75, 81, 125, 1) 15%, rgba(42, 59, 156, 1) 49%, rgba(3, 60, 145, 0.81) 82%);
 }
 .cards2even{
     position: sticky;
-    min-height:110%;
+    min-height:50%;
     width: 0.1px;
     justify-self: center;
-    border: 2px solid black;
+    border: 2px solid whitesmoke;    
 }
+
+
+/* Cards the end */
+.cards {
+  perspective: 1000px;
+  width: 300px;
+  height: 200px;
+  margin: 20px;
+}
+
+.cards-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.cards:hover .cards-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  padding: 20px;
+}
+
+/* Front face */
+.card-front {
+  background: #111;
+  color: #fff;
+}
+
+/* Back face */
+.card-back {
+  background: #e50914;
+  color: #fff;
+  transform: rotateY(180deg);
+}
+.cards:nth-child(odd) .card-front {
+  background: #111;
+}
+.cards:nth-child(even) .card-front {
+  background: #222;
+}
+#down>.cards:nth-child(even) .card-front {
+  background: #111;
+}
+#down>.cards:nth-child(odd) .card-front {
+  background: #222;
+}
+
+
 footer{
     margin-top: 50px;
     font-size: 14px;
